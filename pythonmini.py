@@ -40,7 +40,7 @@ class quiz:
             self.score += 1
 
     def xyz(self): 
-        self.startquiz("self.subject")
+        self.startquiz(self.subject)
 
     def showquestion(self,i):
         question_window = tk.Toplevel(self.root)
