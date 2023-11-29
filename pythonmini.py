@@ -25,14 +25,7 @@ def selectq(subject):
     return questions
 
 root = tk.Tk()
-##selected_questions gives a list of questions. 
-# every question in the list has the attributes 
-# question_statement q.options (a list of 4 options) 
-# and q.correct_answer
 
-#labelsforsubjects
-#def select_subject:
-#sub = select_subject()
 class quiz:
     def __init__(self, root):
         self.root = root
@@ -40,13 +33,14 @@ class quiz:
         self.root.title("Quiz")
         #select subject
         self.welcomescreen()
+        self.subject = "all"
         
     def check(self, question, selected):
         if selected == question.correct_answer:
             self.score += 1
 
     def xyz(self): 
-        self.startquiz("all")
+        self.startquiz("self.subject")
 
     def showquestion(self,i):
         question_window = tk.Toplevel(self.root)
@@ -66,10 +60,22 @@ class quiz:
         for i in questions:
             self.showquestion(i)
         self.show_score()
+        
+    def set_subject(self, new_subject):
+        self.subject = new_subject
+        
     def welcomescreen(self):
         start = tk.Button(root, text = "Start quiz", command = self.xyz)
         start.pack()
-        #selectsubject
+        subject_label = tk.Label(self.root, text="Select Subject:")
+        subject_label.pack()
+
+        subjects = ["all", "Maths", "History", "Geography", "Astronomy"] 
+
+        for subject in subjects:
+            subject_button = tk.Button(self.root, text=subject, command=lambda subj=subject: self.set_subject(subj))
+            subject_button.pack()
+        
 
     def show_score(self):
         score_message = f"Your Final Score: {self.score}/5"
