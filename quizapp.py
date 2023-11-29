@@ -57,7 +57,7 @@ class quiz:
         questions = selectq(sub)
         for i in questions:
             self.showquestion(i)
-        final_score_label = tk.Label(self.root, text=f"Your Final Score: {self.score}/10")
+        final_score_label = tk.Label(self.root, text=f"Your Final Score: {self.score}/5")
         final_score_label.pack()
 
 
