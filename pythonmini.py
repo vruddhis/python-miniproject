@@ -54,48 +54,73 @@ class quiz:
         self.subject = "all"
         self.welcomescreen()
         self.x = True
-        
-        
-    def check(self, question, selected):
-        if selected == question.correct_answer:
-            self.score += 1
+    
 
     def xyz(self): 
         self.startquiz(self.subject)
         
-    def nextq(self):
-        self.x = True
         
-    def showquestion(self,i):
-        question_window = tk.Toplevel(self.root)
-        question_window.title("Question")
-        question = tk.Label(question_window,text = i.question_statement)
-        question.pack()
-        option1 = tk.Button(question_window, text = i.option1, command = i.check1)
-        option1.pack()
-        option2 = tk.Button(question_window, text = i.option2, command = i.check2)
-        option2.pack()
-        option3 = tk.Button(question_window, text = i.option3, command = i.check3)
-        option3.pack()
-        option4 = tk.Button(question_window, text = i.option4, command = i.check4)
-        option4.pack()
-        self.score += i.tinyscore
-        done = tk.Button(question_window, text = "Next", command = self.nextq)
-        done.pack()
         
         
 
     def startquiz(self, sub):
         questions = selectq(sub)
-        i = 0
-        while (self.x == True) and i < 5:
-            self.x = False
-            self.showquestion(questions[i])
-            i += 1
-            self.root.update_idletasks()
-        if i== 5 and self.x == True:
-            self.show_score()
-
+        question_window = tk.Toplevel(self.root)
+        question1 = tk.Label(question_window, text=questions[0].question_statement)
+        question1.pack()
+        oA1 = tk.Button(question_window, text = questions[0].option1, command = question[0].check1)
+        oA1.pack()
+        oB1 = tk.Button(question_window, text = questions[0].option2, command = question[0].check2)
+        oB1.pack()
+        oC1 = tk.Button(question_window, text = questions[0].option3, command = question[0].check3)
+        oC1.pack()
+        oD1 = tk.Button(question_window, text = questions[0].option4, command = question[0].check4)
+        oD1.pack()
+        question2 = tk.Label(question_window, text=questions[1].question_statement)
+        question2.pack()
+        oA2 = tk.Button(question_window, text = questions[1].option1, command = question[1].check1)
+        oA2.pack()
+        oB2 = tk.Button(question_window, text = questions[1].option2, command = question[1].check2)
+        oB2.pack()
+        oC2 = tk.Button(question_window, text = questions[1].option3, command = question[1].check3)
+        oC2.pack()
+        oD2 = tk.Button(question_window, text = questions[1].option4, command = question[1].check4)
+        oD2.pack()
+        question3 = tk.Label(question_window, text=questions[2].question_statement)
+        question3.pack()
+        oA3 = tk.Button(question_window, text = questions[2].option1, command = question[2].check1)
+        oA3.pack()
+        oB3 = tk.Button(question_window, text = questions[2].option2, command = question[2].check2)
+        oB3.pack()
+        oC3 = tk.Button(question_window, text = questions[2].option3, command = question[2].check3)
+        oC3.pack()
+        oD3 = tk.Button(question_window, text = questions[2].option4, command = question[2].check4)
+        oD3.pack()
+        question4 = tk.Label(question_window, text=questions[3].question_statement)
+        question4.pack()
+        oA4 = tk.Button(question_window, text = questions[3].option1, command = question[3].check1)
+        oA4.pack()
+        oB4 = tk.Button(question_window, text = questions[3].option2, command = question[3].check2)
+        oB4.pack()
+        oC4 = tk.Button(question_window, text = questions[3].option3, command = question[3].check3)
+        oC4.pack()
+        oD4 = tk.Button(question_window, text = questions[3].option4, command = question[3].check4)
+        oD4.pack()
+        question5 = tk.Label(question_window, text=questions[4].question_statement)
+        question5.pack()
+        oA5 = tk.Button(question_window, text = questions[4].option1, command = question[4].check1)
+        oA5.pack()
+        oB5 = tk.Button(question_window, text = questions[4].option2, command = question[4].check2)
+        oB5.pack()
+        oC5 = tk.Button(question_window, text = questions[4].option3, command = question[4].check3)
+        oC5.pack()
+        oD5 = tk.Button(question_window, text = questions[4].option4, command = question[4].check4)
+        oD5.pack()
+                          
+        self.score += question[0].tinyscore + question[1].tinyscore + question[2].tinyscore + question[3].tinyscore + question[4].tinyscore
+        end = tk.Button(question_window, text = "End quiz", command = self.show_score)
+        end.pack()
+        
     def setmaths(self):
         self.subject = "Maths"
 
