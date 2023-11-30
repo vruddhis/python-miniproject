@@ -31,9 +31,9 @@ class quiz:
         self.root = root
         self.score = 0
         self.root.title("Quiz")
-        #select subject
-        self.welcomescreen()
         self.subject = "all"
+        self.welcomescreen()
+        
         
     def check(self, question, selected):
         if selected == question.correct_answer:
@@ -60,23 +60,39 @@ class quiz:
         for i in questions:
             self.showquestion(i)
         self.show_score()
-        
-    def set_subject(self, new_subject):
-        self.subject = new_subject
+
+    def setmaths(self):
+        self.subject = "Maths"
+
+    def setscience(self):
+        self.subject = "Science"
+
+    def sethistory(self):
+        self.subject = "History"
+    def setgeo(self):
+        self.subject = "Geography"
+    def setastro(self):
+        self.subject = "Astronomy"
         
     def welcomescreen(self):
         start = tk.Button(root, text = "Start quiz", command = self.xyz)
         start.pack()
         subject_label = tk.Label(self.root, text="Select Subject:")
         subject_label.pack()
-
-        subjects = ["all", "Maths", "History", "Geography", "Astronomy"] 
-
-        for subject in subjects:
-            subject_button = tk.Button(self.root, text=subject, command=lambda subj=subject: self.set_subject(subj))
-            subject_button.pack()
+        all_button = tk.Button(self.root, text = "Any")
+        all_button.pack()
+        maths_button = tk.Button(self.root, text = "Maths", command = self.setmaths)
+        maths_button.pack()
+        science_button = tk.Button(self.root, text = "Science", command = self.setscience)
+        science_button.pack()
+        history_button = tk.Button(self.root, text = "History", command = self.sethistory)
+        history_button.pack()
+        geo_button = tk.Button(self.root, text = "Geography", command = self.setgeo)
+        geo_button.pack()
+        astro_button = tk.Button(self.root, text = "Astronomy", command = self.setastro)
+        astro_button.pack()
         
-
+    
     def show_score(self):
         score_message = f"Your Final Score: {self.score}/5"
         messagebox.showinfo("Quiz Result", score_message)
