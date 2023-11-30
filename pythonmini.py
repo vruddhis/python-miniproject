@@ -53,6 +53,7 @@ class quiz:
         self.root.title("Quiz")
         self.subject = "all"
         self.welcomescreen()
+        self.x = True
         
         
     def check(self, question, selected):
@@ -61,7 +62,10 @@ class quiz:
 
     def xyz(self): 
         self.startquiz(self.subject)
-
+        
+    def nextq(self):
+        self.x == True
+        
     def showquestion(self,i):
         question_window = tk.Toplevel(self.root)
         question_window.title("Question")
@@ -76,14 +80,20 @@ class quiz:
         option4 = tk.Button(question_window, text = i.option4, command = i.check4)
         option4.pack()
         self.score += i.tinyscore
+        done = tk.Button(question_window, text = "Next", command = self.nextq)
+        done.pack()
         
         
 
     def startquiz(self, sub):
         questions = selectq(sub)
-        for i in questions:
-            self.showquestion(i)
-        self.show_score()
+        i = 0
+        while (self.x == True) and i < 5:
+            self.x = False
+            self.showquestion(questions[i])
+            i += 1
+        if i== 5 and self.x == True:
+            self.show_score()
 
     def setmaths(self):
         self.subject = "Maths"
