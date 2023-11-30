@@ -71,67 +71,36 @@ class quiz:
     def xyz(self): 
         self.startquiz(self.subject)
 
+    
     def startquiz(self, sub):
     questions = selectq(sub)
     question_window = tk.Toplevel(self.root)
-    question1 = tk.Label(question_window, text=questions[0].question_statement)
-    question1.pack()
-    oA1 = tk.Button(question_window, text=questions[0].option1, command=questions[0].check1)
-    oA1.pack()
-    oB1 = tk.Button(question_window, text=questions[0].option2, command=questions[0].check2)
-    oB1.pack()
-    oC1 = tk.Button(question_window, text=questions[0].option3, command=questions[0].check3)
-    oC1.pack()
-    oD1 = tk.Button(question_window, text=questions[0].option4, command=questions[0].check4)
-    oD1.pack()
+    option1_button = [0,0,0,0]
+    option2_button = [0,0,0,0]
+    option3_button = [0,0,0,0]
+    option4_button = [0,0,0,0]
 
-    question2 = tk.Label(question_window, text=questions[1].question_statement)
-    question2.pack()
-    oA2 = tk.Button(question_window, text=questions[1].option1, command=questions[1].check1)
-    oA2.pack()
-    oB2 = tk.Button(question_window, text=questions[1].option2, command=questions[1].check2)
-    oB2.pack()
-    oC2 = tk.Button(question_window, text=questions[1].option3, command=questions[1].check3)
-    oC2.pack()
-    oD2 = tk.Button(question_window, text=questions[1].option4, command=questions[1].check4)
-    oD2.pack()
+    for i in range(5):
+        question_label = tk.Label(question_window, text=questions[i].question_statement)
+        question_label.pack()
 
-    question3 = tk.Label(question_window, text=questions[2].question_statement)
-    question3.pack()
-    oA3 = tk.Button(question_window, text=questions[2].option1, command=questions[2].check1)
-    oA3.pack()
-    oB3 = tk.Button(question_window, text=questions[2].option2, command=questions[2].check2)
-    oB3.pack()
-    oC3 = tk.Button(question_window, text=questions[2].option3, command=questions[2].check3)
-    oC3.pack()
-    oD3 = tk.Button(question_window, text=questions[2].option4, command=questions[2].check4)
-    oD3.pack()
+        option1_button[i] = tk.Button(question_window, text=questions[i].option1, command=questions[i].check1)
+        option1_button[i].pack()
 
-    question4 = tk.Label(question_window, text=questions[3].question_statement)
-    question4.pack()
-    oA4 = tk.Button(question_window, text=questions[3].option1, command=questions[3].check1)
-    oA4.pack()
-    oB4 = tk.Button(question_window, text=questions[3].option2, command=questions[3].check2)
-    oB4.pack()
-    oC4 = tk.Button(question_window, text=questions[3].option3, command=questions[3].check3)
-    oC4.pack()
-    oD4 = tk.Button(question_window, text=questions[3].option4, command=questions[3].check4)
-    oD4.pack()
+        option2_button[i] = tk.Button(question_window, text=questions[i].option2, command=questions[i].check2)
+        option2_button[i].pack()
 
-    question5 = tk.Label(question_window, text=questions[4].question_statement)
-    question5.pack()
-    oA5 = tk.Button(question_window, text=questions[4].option1, command=questions[4].check1)
-    oA5.pack()
-    oB5 = tk.Button(question_window, text=questions[4].option2, command=questions[4].check2)
-    oB5.pack()
-    oC5 = tk.Button(question_window, text=questions[4].option3, command=questions[4].check3)
-    oC5.pack()
-    oD5 = tk.Button(question_window, text=questions[4].option4, command=questions[4].check4)
-    oD5.pack()
+        option3_button[i] = tk.Button(question_window, text=questions[i].option3, command=questions[i].check3)
+        option3_button[i].pack()
 
-    self.score += questions[0].tinyscore + questions[1].tinyscore + questions[2].tinyscore + questions[3].tinyscore + questions[4].tinyscore
-    end = tk.Button(question_window, text="End quiz", command=self.show_score)
-    end.pack()
+        option4_button[i] = tk.Button(question_window, text=questions[i].option4, command=questions[i].check4)
+        option4_button[i].pack()
+
+        self.score += questions[i].tinyscore
+
+    end_button = tk.Button(question_window, text="End quiz", command=self.show_score)
+    end_button.pack()
+
 
         
         
