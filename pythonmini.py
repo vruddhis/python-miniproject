@@ -34,7 +34,7 @@ def selectq(subject):
     if subject == "all":
         subject_questions = df
     else:
-        subject_questions = df[df['subject'] == subject]
+        subject_questions = df[df['Subject'] == subject]
     selected_questions = subject_questions.sample(n=5)
     questions = []
     for index, row in selected_questions.iterrows():
@@ -92,6 +92,7 @@ class quiz:
             self.x = False
             self.showquestion(questions[i])
             i += 1
+            self.root.update_idletasks()
         if i== 5 and self.x == True:
             self.show_score()
 
