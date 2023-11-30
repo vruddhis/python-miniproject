@@ -15,16 +15,16 @@ class Question:
         self.correct_answer = row['Correct answer']
 
     def check1(self):
-        if self.option1 == self.corect_answer:
+        if self.option1 == self.correct_answer:
             self.tinyscore += 1
     def check2(self):
-        if self.option2 == self.corect_answer:
+        if self.option2 == self.correct_answer:
             self.tinyscore += 1
     def check3(self):
-        if self.option3 == self.corect_answer:
+        if self.option3 == self.correct_answer:
             self.tinyscore += 1
     def check4(self):
-        if self.option4 == self.corect_answer:
+        if self.option4 == self.correct_answer:
             self.tinyscore += 1
             
         
