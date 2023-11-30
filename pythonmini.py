@@ -6,8 +6,28 @@ import tkinter as tk
 class Question:
     def __init__(self, row):
         self.question_statement = row['Question']
-        self.options = [row['Option1'], row['Option2'], row['Option3'], row['Option4']]
+        self.option1 = row['Option1']
+        self.option2 = row['Option2']
+        self.option3 = row['Option3']
+        self.option4 = row['Option4']
+        self.tinyscore = 0
+        
         self.correct_answer = row['Correct answer']
+
+    def check1(self):
+        if self.option1 == self.corect_answer:
+            self.tinyscore += 1
+    def check2(self):
+        if self.option2 == self.corect_answer:
+            self.tinyscore += 1
+    def check3(self):
+        if self.option3 == self.corect_answer:
+            self.tinyscore += 1
+    def check4(self):
+        if self.option4 == self.corect_answer:
+            self.tinyscore += 1
+            
+        
 
 def selectq(subject):
     df = pd.read_csv(r"C:\Users\VANSHIKA\Downloads\quiz_questions - Sheet1 (1).csv")
@@ -47,13 +67,17 @@ class quiz:
         question_window.title("Question")
         question = tk.Label(question_window,text = i.question_statement)
         question.pack()
-        for option in i.options:
-            option_button = tk.Button(question_window, text = option, command = lambda : self.check(i, option))
-            option_button.pack()
-        #next_button = tk.Button(question_window, text="Next", command=question_window.destroy)
-        #next_button.pack()
-        print(self.score)
-        print("showq called")
+        option1 = tk.Button(question_window, text = i.option1, command = i.check1)
+        option1.pack()
+        option2 = tk.Button(question_window, text = i.option2, command = i.check2)
+        option2.pack()
+        option3 = tk.Button(question_window, text = i.option3, command = i.check3)
+        option3.pack()
+        option4 = tk.Button(question_window, text = i.option4, command = i.check4)
+        option4.pack()
+        self.score += i.tinyscore
+        
+        
 
     def startquiz(self, sub):
         questions = selectq(sub)
