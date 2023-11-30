@@ -17,15 +17,27 @@ class Question:
     def check1(self):
         if self.option1 == self.correct_answer:
             self.tinyscore += 1
+            print("correct")
+        else:
+            print("wrong")
     def check2(self):
         if self.option2 == self.correct_answer:
             self.tinyscore += 1
+            print("correct")
+        else:
+            print("Wrong")
     def check3(self):
         if self.option3 == self.correct_answer:
             self.tinyscore += 1
+            print("correct")
+        else:
+            print("wrong")
     def check4(self):
         if self.option4 == self.correct_answer:
             self.tinyscore += 1
+            print("correct")
+        else:
+            print("wrong")
             
         
 
