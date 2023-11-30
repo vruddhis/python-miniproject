@@ -64,7 +64,7 @@ class quiz:
         self.startquiz(self.subject)
         
     def nextq(self):
-        self.x == True
+        self.x = True
         
     def showquestion(self,i):
         question_window = tk.Toplevel(self.root)
