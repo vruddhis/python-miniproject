@@ -68,114 +68,126 @@ class quiz:
         self.x = True
         self.questions = []
         self.question_window1 = None
+        self.widgets = []
     
 
     def xyz(self): 
         self.startquiz(self.subject)
 
     def displayquestion1(self):
-        question_window1 = tk.Toplevel(self.root)
-        question_label = tk.Label(question_window1, text=self.questions[0].question_statement)
+        self.question_window1 = tk.Toplevel(self.root)
+        question_label = tk.Label(self.question_window1, text=self.questions[0].question_statement)
         question_label.pack()
 
-        option1_button = tk.Button(question_window1, text=self.questions[0].option1, command=self.questions[0].check1)
+        option1_button = tk.Button(self.question_window1, text=self.questions[0].option1, command=self.questions[0].check1)
         option1_button.pack()
 
-        option2_button = tk.Button(question_window1, text=self.questions[0].option2, command=self.questions[0].check2)
+        option2_button = tk.Button(self.question_window1, text=self.questions[0].option2, command=self.questions[0].check2)
         option2_button.pack()
 
-        option3_button = tk.Button(question_window1, text=self.questions[0].option3, command=self.questions[0].check3)
+        option3_button = tk.Button(self.question_window1, text=self.questions[0].option3, command=self.questions[0].check3)
         option3_button.pack()
 
-        option4_button = tk.Button(question_window1, text=self.questions[0].option4, command=self.questions[0].check4)
+        option4_button = tk.Button(self.question_window1, text=self.questions[0].option4, command=self.questions[0].check4)
         option4_button.pack()
 
-        next_button = tk.Button(question_window1, text = "Next", command = self.displayquestion2)
+        next_button = tk.Button(self.question_window1, text = "Next", command = self.displayquestion2)
         next_button.pack()
 
+        self.widgets=[question_label, option1_button, option2_button, option3_button, option4_button, next_button]
     def displayquestion2(self):
-        question_window1.destroy()
-        question_window1 = tk.Toplevel(self.root)
-        question_label = tk.Label(question_window1, text=self.questions[1].question_statement)
+        for i in self.widgets:
+            i.destroy()
+        question_label = tk.Label(self.question_window1, text=self.questions[1].question_statement)
         question_label.pack()
 
-        option1_button = tk.Button(question_window1, text=self.questions[1].option1, command=self.questions[1].check1)
+        option1_button = tk.Button(self.question_window1, text=self.questions[1].option1, command=self.questions[1].check1)
         option1_button.pack()
 
-        option2_button = tk.Button(question_window1, text=self.questions[1].option2, command=self.questions[1].check2)
+        option2_button = tk.Button(self.question_window1, text=self.questions[1].option2, command=self.questions[1].check2)
         option2_button.pack()
 
-        option3_button = tk.Button(question_window1, text=self.questions[1].option3, command=self.questions[1].check3)
+        option3_button = tk.Button(self.question_window1, text=self.questions[1].option3, command=self.questions[1].check3)
         option3_button.pack()
 
-        option4_button = tk.Button(question_window1, text=self.questions[1].option4, command=self.questions[1].check4)
+        option4_button = tk.Button(self.question_window1, text=self.questions[1].option4, command=self.questions[1].check4)
         option4_button.pack()
 
-        next_button = tk.Button(question_window1, text = "Next", command = self.displayquestion3)
+        next_button = tk.Button(self.question_window1, text = "Next", command = self.displayquestion3)
         next_button.pack()
+        self.widgets=[question_label, option1_button, option2_button, option3_button, option4_button, next_button]
 
     def displayquestion3(self):
-        question_window1.destroy()
-        question_window1 = tk.Toplevel(self.root)
-        question_label = tk.Label(question_window1, text=self.questions[2].question_statement)
+        for i in self.widgets:
+            i.destroy()
+        self.question_window1.destroy()
+        self.question_window1 = tk.Toplevel(self.root)
+        question_label = tk.Label(self.question_window1, text=self.questions[2].question_statement)
         question_label.pack()
 
-        option1_button = tk.Button(question_window1, text=self.questions[2].option1, command=self.questions[2].check1)
+        option1_button = tk.Button(self.question_window1, text=self.questions[2].option1, command=self.questions[2].check1)
         option1_button.pack()
 
-        option2_button = tk.Button(question_window1, text=self.questions[2].option2, command=self.questions[2].check2)
+        option2_button = tk.Button(self.question_window1, text=self.questions[2].option2, command=self.questions[2].check2)
         option2_button.pack()
 
-        option3_button = tk.Button(question_window1, text=self.questions[2].option3, command=self.questions[2].check3)
+        option3_button = tk.Button(self.question_window1, text=self.questions[2].option3, command=self.questions[2].check3)
         option3_button.pack()
 
-        option4_button = tk.Button(question_window1, text=self.questions[2].option4, command=self.questions[2].check4)
+        option4_button = tk.Button(self.question_window1, text=self.questions[2].option4, command=self.questions[2].check4)
         option4_button.pack()
 
-        next_button = tk.Button(question_window1, text = "Next", command = self.displayquestion4)
+        next_button = tk.Button(self.question_window1, text = "Next", command = self.displayquestion4)
         next_button.pack()
+        self.widgets=[question_label, option1_button, option2_button, option3_button, option4_button, next_button]
 
     def displayquestion4(self):
-        question_window1.destroy()
-        question_window1 = tk.Toplevel(self.root)
-        question_label = tk.Label(question_window1, text=self.questions[3].question_statement)
+        for i in self.widgets:
+            i.destroy()
+        self.question_window1.destroy()
+        self.question_window1 = tk.Toplevel(self.root)
+        question_label = tk.Label(self.question_window1, text=self.questions[3].question_statement)
         question_label.pack()
 
-        option1_button = tk.Button(question_window1, text=self.questions[3].option1, command=self.questions[3].check1)
+        option1_button = tk.Button(self.question_window1, text=self.questions[3].option1, command=self.questions[3].check1)
         option1_button.pack()
 
-        option2_button = tk.Button(question_window1, text=self.questions[3].option2, command=self.questions[3].check2)
+        option2_button = tk.Button(self.question_window1, text=self.questions[3].option2, command=self.questions[3].check2)
         option2_button.pack()
 
-        option3_button = tk.Button(question_window1, text=self.questions[3].option3, command=self.questions[3].check3)
+        option3_button = tk.Button(self.question_window1, text=self.questions[3].option3, command=self.questions[3].check3)
         option3_button.pack()
 
-        option4_button = tk.Button(question_window1, text=self.questions[3].option4, command=self.questions[3].check4)
+        option4_button = tk.Button(self.question_window1, text=self.questions[3].option4, command=self.questions[3].check4)
         option4_button.pack()
 
-        next_button = tk.Button(question_window1, text = "Next", command = self.displayquestion5)
+        next_button = tk.Button(self.question_window1, text = "Next", command = self.displayquestion5)
         next_button.pack()
+        self.widgets=[question_label, option1_button, option2_button, option3_button, option4_button, next_button]
 
     def displayquestion5(self):
-        question_window1.destroy()
-        question_window1 = tk.Toplevel(self.root)
-        question_label = tk.Label(question_window1, text=self.questions[4].question_statement)
+        for i in self.widgets:
+            i.destroy()
+        self.question_window1.destroy()
+        self.question_window1 = tk.Toplevel(self.root)
+        question_label = tk.Label(self.question_window1, text=self.questions[4].question_statement)
         question_label.pack()
 
-        option1_button = tk.Button(question_window1, text=self.questions[4].option1, command=self.questions[4].check1)
+        option1_button = tk.Button(self.question_window1, text=self.questions[4].option1, command=self.questions[4].check1)
         option1_button.pack()
 
-        option2_button = tk.Button(question_window1, text=self.questions[4].option2, command=self.questions[4].check2)
+        option2_button = tk.Button(self.question_window1, text=self.questions[4].option2, command=self.questions[4].check2)
         option2_button.pack()
 
-        option3_button = tk.Button(question_window1, text=self.questions[4].option3, command=self.questions[4].check3)
+        option3_button = tk.Button(self.question_window1, text=self.questions[4].option3, command=self.questions[4].check3)
         option3_button.pack()
 
-        option4_button = tk.Button(question_window1, text=self.questions[4].option4, command=self.questions[4].check4)
+        option4_button = tk.Button(self.question_window1, text=self.questions[4].option4, command=self.questions[4].check4)
         option4_button.pack()
 
-        next_button = tk.Button(question_window1, text = "End Quiz", command = self.show_score)
+        next_button = tk.Button(self.question_window1, text = "End Quiz", command = self.show_score)
         next_button.pack()
+        self.widgets=[question_label, option1_button, option2_button, option3_button, option4_button, next_button]
 
     
     def startquiz(self, sub):
@@ -217,6 +229,7 @@ class quiz:
         
     
     def show_score(self):
+        self.question_window1.destroy()
         for i in self.questions:
             self.score += i.tinyscore
         score_message = f"Your Final Score: {self.score}/5"
