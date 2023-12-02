@@ -42,7 +42,7 @@ class Question:
         
 
 def selectq(subject):
-    df = pd.read_csv("quiz_questions.csv")
+    df = pd.read_csv("python_mini.csv")
     if subject == "all":
         subject_questions = df
     else:
@@ -95,6 +95,7 @@ class quiz:
         next_button.pack()
 
         self.widgets=[question_label, option1_button, option2_button, option3_button, option4_button, next_button]
+
     def displayquestion2(self):
         for i in self.widgets:
             i.destroy()
@@ -121,6 +122,8 @@ class quiz:
         for i in self.widgets:
             i.destroy()
 
+        question_label = tk.Label(self.question_window1, text=self.questions[2].question_statement)
+        question_label.pack()
         option1_button = tk.Button(self.question_window1, text=self.questions[2].option1, command=self.questions[2].check1)
         option1_button.pack()
 
@@ -180,13 +183,10 @@ class quiz:
         next_button = tk.Button(self.question_window1, text = "End Quiz", command = self.show_score)
         next_button.pack()
         self.widgets=[question_label, option1_button, option2_button, option3_button, option4_button, next_button]
-
     
     def startquiz(self, sub):
         self.questions = selectq(sub)
         self.displayquestion1()
-
-        
         
     def setmaths(self):
         self.subject = "Maths"
