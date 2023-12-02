@@ -120,10 +120,6 @@ class quiz:
     def displayquestion3(self):
         for i in self.widgets:
             i.destroy()
-        self.question_window1.destroy()
-        self.question_window1 = tk.Toplevel(self.root)
-        question_label = tk.Label(self.question_window1, text=self.questions[2].question_statement)
-        question_label.pack()
 
         option1_button = tk.Button(self.question_window1, text=self.questions[2].option1, command=self.questions[2].check1)
         option1_button.pack()
@@ -144,8 +140,6 @@ class quiz:
     def displayquestion4(self):
         for i in self.widgets:
             i.destroy()
-        self.question_window1.destroy()
-        self.question_window1 = tk.Toplevel(self.root)
         question_label = tk.Label(self.question_window1, text=self.questions[3].question_statement)
         question_label.pack()
 
@@ -168,8 +162,6 @@ class quiz:
     def displayquestion5(self):
         for i in self.widgets:
             i.destroy()
-        self.question_window1.destroy()
-        self.question_window1 = tk.Toplevel(self.root)
         question_label = tk.Label(self.question_window1, text=self.questions[4].question_statement)
         question_label.pack()
 
