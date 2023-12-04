@@ -22,22 +22,21 @@ class Question:
             print("wrong")
     def check2(self):
         if self.option2 == self.correct_answer:
-            self.tinyscore += 1
-            print("correct")
+            self.tinyscore = 1
         else:
-            print("Wrong")
+            self.tinyscore = 0
     def check3(self):
         if self.option3 == self.correct_answer:
-            self.tinyscore += 1
-            print("correct")
+            self.tinyscore = 1
+            
         else:
-            print("wrong")
+            self.tinyscore = 0
     def check4(self):
         if self.option4 == self.correct_answer:
-            self.tinyscore += 1
-            print("correct")
+            self.tinyscore = 1
+            
         else:
-            print("wrong")
+            self.tinyscore = 0
             
         
 
