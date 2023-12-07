@@ -114,6 +114,9 @@ class quiz:
         option4_button = tk.Button(self.question_window1, text=self.questions[1].option4, command=self.questions[1].check4)
         option4_button.pack()
 
+        previous_button = tk.Button(self.question_window1, text = "Previous", command = self.displayquestion1)
+        previous_button.pack()
+
         next_button = tk.Button(self.question_window1, text = "Next", command = self.displayquestion3)
         next_button.pack()
         self.widgets=[question_label, option1_button, option2_button, option3_button, option4_button, next_button]
@@ -135,6 +138,9 @@ class quiz:
 
         option4_button = tk.Button(self.question_window1, text=self.questions[2].option4, command=self.questions[2].check4)
         option4_button.pack()
+
+        previous_button = tk.Button(self.question_window1, text = "Previous", command = self.displayquestion2)
+        previous_button.pack()
 
         next_button = tk.Button(self.question_window1, text = "Next", command = self.displayquestion4)
         next_button.pack()
@@ -158,6 +164,9 @@ class quiz:
         option4_button = tk.Button(self.question_window1, text=self.questions[3].option4, command=self.questions[3].check4)
         option4_button.pack()
 
+        previous_button = tk.Button(self.question_window1, text = "Previous", command = self.displayquestion3)
+        previous_button.pack()
+
         next_button = tk.Button(self.question_window1, text = "Next", command = self.displayquestion5)
         next_button.pack()
         self.widgets=[question_label, option1_button, option2_button, option3_button, option4_button, next_button]
@@ -179,9 +188,13 @@ class quiz:
 
         option4_button = tk.Button(self.question_window1, text=self.questions[4].option4, command=self.questions[4].check4)
         option4_button.pack()
+        
+        previous_button = tk.Button(self.question_window1, text = "Previous", command = self.displayquestion4)
+        previous_button.pack()
 
         next_button = tk.Button(self.question_window1, text = "End Quiz", command = self.show_score)
         next_button.pack()
+        
         self.widgets=[question_label, option1_button, option2_button, option3_button, option4_button, next_button]
     
     def startquiz(self, sub):
