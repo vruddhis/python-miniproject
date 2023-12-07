@@ -215,8 +215,9 @@ class quiz:
         self.subject = "Astronomy"
         
     def welcomescreen(self):
-        start = tk.Button(root, text = "Start quiz", command = self.xyz)
-        start.pack()
+        text = "Instructions:\n1. Click 'Start Quiz' to begin.\n2. Select a subject or choose 'Any' for random questions.\n3. Answer each question by clicking the appropriate option. Note: Only your last selected option will be considered.\n4. Click 'Next' to move to the next question or 'End Quiz' to finish."
+        instructions_label = tk.Label(self.root, text=text)
+        instructions_label.pack()
         subject_label = tk.Label(self.root, text="Select Subject:")
         subject_label.pack()
         all_button = tk.Button(self.root, text = "Any")
@@ -231,6 +232,8 @@ class quiz:
         geo_button.pack()
         astro_button = tk.Button(self.root, text = "Astronomy", command = self.setastro)
         astro_button.pack()
+        start = tk.Button(root, text = "Start quiz", command = self.xyz)
+        start.pack()
         
     
     def show_score(self):
