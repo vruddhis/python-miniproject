@@ -4,7 +4,6 @@ import pandas as pd
 import tkinter as tk
 from tkinter.font import Font
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg, NavigationToolbar2Tk)
-from matplotlib.figure import Figure
 
 class Question:
     def __init__(self, row):
