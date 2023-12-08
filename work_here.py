@@ -4,6 +4,7 @@ from tkinter import PhotoImage, Canvas
 import pandas as pd
 import tkinter as tk
 from tkinter.font import Font
+import matplotlib
 
 class Question:
     def __init__(self, row):
@@ -305,6 +306,15 @@ class quiz:
         score_message = f"Your Final Score: {self.score}/5"
         score_label=tk.Label(self.question_window1,text=score_message,bg="white",font=button_font)
         score_label.pack()
+
+        labels = 'Correct', 'Incorrect'
+        sizes = [self.score, 5 - self.score]
+        colors = ['green', 'red']
+
+        plt.pie(sizes, labels=labels, colors=colors, shadow=True)
+
+        plt.title("Quiz Result")
+        plt.show()
 
 swhoo=quiz(root)
 root.mainloop()
