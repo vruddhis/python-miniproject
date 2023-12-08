@@ -103,7 +103,6 @@ class quiz:
         self.startquiz(self.subject)
 
     def displayquestion1(self):
-        self.question_window1 = tk.Toplevel(self.root)
         self.question_window1.configure(bg="white")
         width= self.question_window1.winfo_screenwidth() 
         height= self.question_window1.winfo_screenheight()
@@ -250,42 +249,43 @@ class quiz:
         
     def welcomescreen(self):
         # bg=ImageTk.PhotoImage(file="question.png")
-        width= root.winfo_screenwidth() 
-        height= root.winfo_screenheight()
+        self.question_window1 = tk.Toplevel(self.root)
+        width= self.question_window1.winfo_screenwidth() 
+        height= self.question_window1.winfo_screenheight()
         root.geometry("%dx%d" % (width, height))
 
         root.title("Quiz Welcome!")
 
         text = "Instructions:\n1. Click 'Start Quiz' to begin.\n2. Select a subject or choose 'Any' for random questions.\n3. Answer each question by clicking the appropriate option. \nNote: Only your last selected option will be considered.\n4. Click 'Next' to move to the next question or 'End Quiz' to finish."
-        instructions_label = tk.Label(self.root, text=text, bg="white",font=button_font)
+        instructions_label = tk.Label(self.question_window1, text=text, bg="white",font=button_font)
         instructions_label.grid(row=3, column=1)
 
-        welcome_label=tk.Label(self.root,text="Welcome to the QuizLand",bg="white",font=welcome_font)
+        welcome_label=tk.Label(self.question_window1,text="Welcome to the QuizLand",bg="white",font=welcome_font)
         welcome_label.grid(row=1,column=1)
 
-        start = tk.Button(text = "Start quiz",command = self.xyz,bg="white", font=wc_option_font,image=startquizimg,compound=LEFT)
+        start = tk.Button(self.question_window1,text = "Start quiz",command = self.xyz,bg="white", font=wc_option_font,image=startquizimg,compound=LEFT)
         start.grid(row=17,column=1)
-        space=tk.Label(text=" ",bg="white")
+        space=tk.Label(self.question_window1,text=" ",bg="white")
         space.grid(row=15,column=1)
-        space2=tk.Label(text=" ",bg="white")
+        space2=tk.Label(self.question_window1,text=" ",bg="white")
         space2.grid(row=16,column=1)
-        space3=tk.Label(text=" ",bg="white")
+        space3=tk.Label(self.question_window1,text=" ",bg="white")
         space3.grid(row=4,column=1)
-        subject_label = tk.Label(self.root, text="Select Subject:",bg="white",font=wc_option_font)
+        subject_label = tk.Label(self.question_window1, text="Select Subject:",bg="white",font=wc_option_font)
         subject_label.grid(row=6,column=1)
-        space4=tk.Label(text=" ",bg="white")
+        space4=tk.Label(self.question_window1,text=" ",bg="white")
         space4.grid(row=7,column=1)
-        all_button = tk.Button(self.root, text = "Any",bg="white", font=wc_option_font)
+        all_button = tk.Button(self.question_window1, text = "Any",bg="white", font=wc_option_font)
         all_button.grid(row=9,column=1)
-        maths_button = tk.Button(self.root, text = "Mathematics",bg="white", command = self.setmaths, font=wc_option_font,image=calcimg,compound=LEFT)
+        maths_button = tk.Button(self.question_window1, text = "Mathematics",bg="white", command = self.setmaths, font=wc_option_font,image=calcimg,compound=LEFT)
         maths_button.grid(row=10,column=1)
-        science_button = tk.Button(self.root, text = "Science",bg="white", command = self.setscience, font=wc_option_font,image=dnaimg,compound=LEFT)
+        science_button = tk.Button(self.question_window1, text = "Science",bg="white", command = self.setscience, font=wc_option_font,image=dnaimg,compound=LEFT)
         science_button.grid(row=11,column=1)
-        history_button = tk.Button(self.root, text = "History",bg="white", command = self.sethistory, font=wc_option_font,image=feathimg,compound=LEFT)
+        history_button = tk.Button(self.question_window1, text = "History",bg="white", command = self.sethistory, font=wc_option_font,image=feathimg,compound=LEFT)
         history_button.grid(row=12,column=1)
-        geo_button = tk.Button(self.root, text = "Geography",bg="white", command = self.setgeo, font=wc_option_font,image=globeimg,compound=LEFT)
+        geo_button = tk.Button(self.question_window1, text = "Geography",bg="white", command = self.setgeo, font=wc_option_font,image=globeimg,compound=LEFT)
         geo_button.grid(row=13,column=1)
-        astro_button = tk.Button(self.root, text = "Astronomy",bg="white", command = self.setastro, font=wc_option_font,image=starimg,compound=LEFT)
+        astro_button = tk.Button(self.question_window1, text = "Astronomy",bg="white", command = self.setastro, font=wc_option_font,image=starimg,compound=LEFT)
         astro_button.grid(row=14,column=1)
         
     def show_score(self):
