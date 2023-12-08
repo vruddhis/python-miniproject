@@ -64,6 +64,13 @@ wc_option_font=Font(family="Helvetica",size=13)
 q_font=Font(family="Helvetica",size=24)
 root.configure(bg="white")
 
+# mathbg=PhotoImage(file="mathbg.png")
+# mathbgimg=tk.PhotoImage(mathbg)
+# mathbg_label = tk.Label(root, image=mathbgimg)
+# mathbg_label.place(x=0, y=0, relwidth=1, relheight=1)
+
+# mathbg_label.image=mathbgimg
+
 bg=PhotoImage(file="q_n_excl.png")
 startquizimg=bg.subsample(10)
 
@@ -81,22 +88,19 @@ starimg=star.subsample(11)
 
 feather=PhotoImage(file="feather.png")
 feathimg=feather.subsample(10)
-# c1=Canvas(root)
-# c1.grid(row=0,column=3)
-# c1.create_image(0,0, image=bg,anchor="nw")
 
 
 class quiz:
     def __init__(self, root):
         self.score = 0
         self.subject = "all"
-        self.welcomescreen()
         self.x = True
         self.questions = []
         self.question_window1 = root
         self.question_window1.title("Quiz")
         self.widgets = []
         self.theme = "Any"
+        self.welcomescreen()
 
     def xyz(self): 
         self.startquiz(self.subject)
@@ -152,7 +156,7 @@ class quiz:
 
         next_button = tk.Button(self.question_window1, text = "Next", command = self.displayquestion3,font=button_font,bg="white")
         next_button.grid()
-        self.widgets=[question_label, option1_button, option2_button, option3_button, option4_button, next_button]
+        self.widgets=[question_label, option1_button, option2_button, option3_button, option4_button,previous_button, next_button]
 
     def displayquestion3(self):
         for i in self.widgets:
@@ -177,7 +181,7 @@ class quiz:
 
         next_button = tk.Button(self.question_window1, text = "Next", command = self.displayquestion4,font=button_font,bg="white")
         next_button.grid()
-        self.widgets=[question_label, option1_button, option2_button, option3_button, option4_button, next_button]
+        self.widgets=[question_label, option1_button, option2_button, option3_button, option4_button,previous_button, next_button]
 
     def displayquestion4(self):
         for i in self.widgets:
@@ -202,7 +206,7 @@ class quiz:
 
         next_button = tk.Button(self.question_window1, text = "Next", command = self.displayquestion5,font=button_font,bg="white")
         next_button.grid()
-        self.widgets=[question_label, option1_button, option2_button, option3_button, option4_button, next_button]
+        self.widgets=[question_label, option1_button, option2_button, option3_button, option4_button,previous_button, next_button]
 
     def displayquestion5(self):
         for i in self.widgets:
@@ -227,20 +231,15 @@ class quiz:
 
         next_button = tk.Button(self.question_window1, text = "End Quiz", command = self.show_score,font=button_font,bg="white")
         next_button.grid()
-        self.widgets=[question_label, option1_button, option2_button, option3_button, option4_button, next_button]
+        self.widgets=[question_label, option1_button, option2_button, option3_button, option4_button,previous_button, next_button]
     
     def startquiz(self, sub):
         self.questions = selectq(sub)
-        self.displayquestion1()
-        
+        self.displayquestion1()        
     def setmaths(self):
         self.subject = "Maths"
-        self.theme = "Maths"
-
     def setscience(self):
-        self.subject = "Science"
-        
-
+        self.subject = "Science"      
     def sethistory(self):
         self.subject = "History"
     def setgeo(self):
@@ -249,50 +248,59 @@ class quiz:
         self.subject = "Astronomy"
         
     def welcomescreen(self):
-        # bg=ImageTk.PhotoImage(file="question.png")
         width= self.question_window1.winfo_screenwidth() 
         height= self.question_window1.winfo_screenheight()
         self.question_window1.geometry("%dx%d" % (width, height))
+        self.question_window1.configure(bg="white")
 
-        text = "Instructions:\n1. Click 'Start Quiz' to begin.\n2. Select a subject or choose 'Any' for random questions.\n3. Answer each question by clicking the appropriate option. \nNote: Only your last selected option will be considered.\n4. Click 'Next' to move to the next question or 'End Quiz' to finish."
-        instructions_label = tk.Label(self.question_window1, text=text, bg="white",font=button_font)
-        instructions_label.grid(row=3, column=1)
+        welcome_font = Font(family="times new roman", size=50, weight="bold")
+        button_font = Font(family="Roboto", size=18)
+        wc_option_font = Font(family="Roboto", size=13)
 
-        welcome_label=tk.Label(self.question_window1,text="Welcome to the QuizLand",bg="white",font=welcome_font)
-        welcome_label.grid(row=1,column=1)
+        text = "Instructions:\n1. Click 'Start Quiz' to begin.\n2. Select a subject or choose 'Surprise me' for random questions.\n3. Answer each question by clicking the appropriate option.\nNote: Only your last selected option will be considered.\n4. Click 'Next' to move to the next question, 'Previous' to move to the previous one and 'End Quiz' to finish."
 
-        start = tk.Button(self.question_window1,text = "Start quiz",command = self.xyz,bg="white", font=wc_option_font,image=startquizimg,compound=LEFT)
-        start.grid(row=17,column=1)
-        space=tk.Label(self.question_window1,text=" ",bg="white")
-        space.grid(row=15,column=1)
-        space2=tk.Label(self.question_window1,text=" ",bg="white")
-        space2.grid(row=16,column=1)
-        space3=tk.Label(self.question_window1,text=" ",bg="white")
-        space3.grid(row=4,column=1)
-        subject_label = tk.Label(self.question_window1, text="Select Subject:",bg="white",font=wc_option_font)
-        subject_label.grid(row=6,column=1)
-        space4=tk.Label(self.question_window1,text=" ",bg="white")
-        space4.grid(row=7,column=1)
-        all_button = tk.Button(self.question_window1, text = "Any",bg="white", font=wc_option_font)
-        all_button.grid(row=9,column=1)
-        maths_button = tk.Button(self.question_window1, text = "Mathematics",bg="white", command = self.setmaths, font=wc_option_font,image=calcimg,compound=LEFT)
-        maths_button.grid(row=10,column=1)
-        science_button = tk.Button(self.question_window1, text = "Science",bg="white", command = self.setscience, font=wc_option_font,image=dnaimg,compound=LEFT)
-        science_button.grid(row=11,column=1)
-        history_button = tk.Button(self.question_window1, text = "History",bg="white", command = self.sethistory, font=wc_option_font,image=feathimg,compound=LEFT)
-        history_button.grid(row=12,column=1)
-        geo_button = tk.Button(self.question_window1, text = "Geography",bg="white", command = self.setgeo, font=wc_option_font,image=globeimg,compound=LEFT)
-        geo_button.grid(row=13,column=1)
-        astro_button = tk.Button(self.question_window1, text = "Astronomy",bg="white", command = self.setastro, font=wc_option_font,image=starimg,compound=LEFT)
-        astro_button.grid(row=14,column=1)
-        self.widgets = [instructions_label, welcome_label, start, space, space2, space3, subject_label, space4, all_button, maths_button, science_button, history_button, geo_button, astro_button]
+        instructions_label = tk.Label(self.question_window1, text=text, bg="white", font=button_font)
+        instructions_label.place(relx=0.5, rely=0.3, anchor="center")
+
+        welcome_label = tk.Label(self.question_window1, text="Welcome to the QuizLand", bg="white", font=welcome_font)
+        welcome_label.place(relx=0.5, rely=0.1, anchor="center")
+
+        start = tk.Button(self.question_window1, text="Start quiz", command=self.xyz, bg="white", font=wc_option_font,image=startquizimg,compound=LEFT)
+        start.place(relx=0.5, rely=0.8, anchor="center")
+
+        subject_label = tk.Label(self.question_window1, text="Select Subject:", bg="white", font=wc_option_font)
+        subject_label.place(relx=0.5, rely=0.5, anchor="center")
+
+        all_button = tk.Button(self.question_window1, text="Surprise me!", bg="white", font=wc_option_font)
+        all_button.place(relx=0.3, rely=0.6, anchor="center")
+
+        maths_button = tk.Button(self.question_window1, text="Mathematics", bg="white", command=self.setmaths, font=wc_option_font,image=calcimg,compound=LEFT)
+        maths_button.place(relx=0.5, rely=0.6, anchor="center")
+
+        science_button = tk.Button(self.question_window1, text="Science", bg="white", command=self.setscience, font=wc_option_font,image=dnaimg,compound=LEFT)
+        science_button.place(relx=0.7, rely=0.6, anchor="center")
+
+        history_button = tk.Button(self.question_window1, text="History", bg="white", command=self.sethistory, font=wc_option_font,image=feathimg,compound=LEFT)
+        history_button.place(relx=0.3, rely=0.7, anchor="center")
+
+        geo_button = tk.Button(self.question_window1, text="Geography", bg="white", command=self.setgeo, font=wc_option_font,image=globeimg,compound=LEFT)
+        geo_button.place(relx=0.5, rely=0.7, anchor="center")
+
+        astro_button = tk.Button(self.question_window1, text="Astronomy", bg="white", command=self.setastro, font=wc_option_font,image=starimg,compound=LEFT)
+        astro_button.place(relx=0.7, rely=0.7, anchor="center")
+
+        self.widgets = [
+            instructions_label, welcome_label, start, subject_label, all_button,
+            maths_button, science_button, history_button, geo_button, astro_button
+        ]
+
     def show_score(self):
         for i in self.widgets:
             i.destroy()
         for i in self.questions:
             self.score += i.tinyscore
         score_message = f"Your Final Score: {self.score}/5"
-        score_label=tk.Label(self.question_window1,text=score_message,bg="white",font=welcome_font)
+        score_label=tk.Label(self.question_window1,text=score_message,bg="white",font=button_font)
         score_label.pack()
 
 swhoo=quiz(root)
