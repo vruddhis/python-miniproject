@@ -89,12 +89,12 @@ feathimg=feather.subsample(10)
 class quiz:
     def __init__(self, root):
         self.score = 0
-        self.question_window1.title("Quiz")
         self.subject = "all"
         self.welcomescreen()
         self.x = True
         self.questions = []
         self.question_window1 = root
+        self.question_window1.title("Quiz")
         self.widgets = []
         self.theme = "Any"
 
