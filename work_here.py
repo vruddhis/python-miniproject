@@ -88,14 +88,13 @@ feathimg=feather.subsample(10)
 
 class quiz:
     def __init__(self, root):
-        self.root = root
         self.score = 0
-        self.root.title("Quiz")
+        self.question_window1.title("Quiz")
         self.subject = "all"
         self.welcomescreen()
         self.x = True
         self.questions = []
-        self.question_window1 = None
+        self.question_window1 = root
         self.widgets = []
         self.theme = "Any"
 
@@ -249,12 +248,9 @@ class quiz:
         
     def welcomescreen(self):
         # bg=ImageTk.PhotoImage(file="question.png")
-        self.question_window1 = tk.Toplevel(self.root)
         width= self.question_window1.winfo_screenwidth() 
         height= self.question_window1.winfo_screenheight()
-        root.geometry("%dx%d" % (width, height))
-
-        root.title("Quiz Welcome!")
+        self.question_window1.geometry("%dx%d" % (width, height))
 
         text = "Instructions:\n1. Click 'Start Quiz' to begin.\n2. Select a subject or choose 'Any' for random questions.\n3. Answer each question by clicking the appropriate option. \nNote: Only your last selected option will be considered.\n4. Click 'Next' to move to the next question or 'End Quiz' to finish."
         instructions_label = tk.Label(self.question_window1, text=text, bg="white",font=button_font)
