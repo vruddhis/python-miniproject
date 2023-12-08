@@ -43,6 +43,7 @@ class Question:
         else:
             self.tinyscore = 0
             print(self.tinyscore)  
+
 def selectq(subject):
     df = pd.read_csv("python_mini.csv")
     if subject == "all":
@@ -91,6 +92,26 @@ starimg=star.subsample(11)
 feather=PhotoImage(file="feather.png")
 feathimg=feather.subsample(10)
 
+a=PhotoImage(file="a.png")
+aimg=a.subsample(10)
+
+b=PhotoImage(file="b.png")
+bimg=b.subsample(10)
+
+c=PhotoImage(file="c.png")
+cimg=c.subsample(10)
+
+d=PhotoImage(file="d.png")
+dimg=d.subsample(10)
+
+q=PhotoImage(file="q.png")
+qimg=q.subsample(10)
+
+prev=PhotoImage(file="leftarr.png")
+previmg=prev.subsample(10)
+
+next=PhotoImage(file="nextarr.png")
+nextimg=next.subsample(10)
 
 class quiz:
     def __init__(self, root):
@@ -112,20 +133,20 @@ class quiz:
             i.destroy()
         self.question_window1.configure(bg="white")
 
-        question_label = tk.Label(self.question_window1, text=self.questions[0].question_statement, font=q_font, bg="white")
+        question_label = tk.Label(self.question_window1, text=self.questions[0].question_statement, font=q_font, bg="white",image=qimg,compound=LEFT)
         question_label.place(relx=0.5, rely=0.2, anchor=CENTER)
 
-        option1_button = tk.Button(self.question_window1, text=self.questions[0].option1, command=self.questions[0].check1, font=button_font, bg="white")
-        option1_button.place(relx=0.25, rely=0.4, anchor=CENTER) 
-        option2_button = tk.Button(self.question_window1, text=self.questions[0].option2, command=self.questions[0].check2, font=button_font, bg="white")
-        option2_button.place(relx=0.75, rely=0.4, anchor=CENTER)
+        option1_button = tk.Button(self.question_window1, text=self.questions[0].option1, command=self.questions[0].check1, font=button_font, bg="white",image=aimg,compound=LEFT)
+        option1_button.place(relx=0.40, rely=0.4, anchor=CENTER) 
+        option2_button = tk.Button(self.question_window1, text=self.questions[0].option2, command=self.questions[0].check2, font=button_font, bg="white",image=bimg,compound=LEFT)
+        option2_button.place(relx=0.60, rely=0.4, anchor=CENTER)
 
-        option3_button = tk.Button(self.question_window1, text=self.questions[0].option3, command=self.questions[0].check3, font=button_font, bg="white")
-        option3_button.place(relx=0.25, rely=0.6, anchor=CENTER)
-        option4_button = tk.Button(self.question_window1, text=self.questions[0].option4, command=self.questions[0].check4, font=button_font, bg="white")
-        option4_button.place(relx=0.75, rely=0.6, anchor=CENTER)
+        option3_button = tk.Button(self.question_window1, text=self.questions[0].option3, command=self.questions[0].check3, font=button_font, bg="white",image=cimg,compound=LEFT)
+        option3_button.place(relx=0.40, rely=0.6, anchor=CENTER)
+        option4_button = tk.Button(self.question_window1, text=self.questions[0].option4, command=self.questions[0].check4, font=button_font, bg="white",image=dimg,compound=LEFT)
+        option4_button.place(relx=0.60, rely=0.6, anchor=CENTER)
 
-        next_button = tk.Button(self.question_window1, text="Next", command=self.displayquestion2, font=button_font, bg="white")
+        next_button = tk.Button(self.question_window1, text="Next", command=self.displayquestion2, font=button_font, bg="white",image=nextimg,compound=RIGHT)
         next_button.place(relx=0.5, rely=0.8, anchor=CENTER)  
 
         self.widgets = [question_label, option1_button, option2_button, option3_button, option4_button, next_button]
@@ -135,22 +156,22 @@ class quiz:
             i.destroy()
         self.question_window1.configure(bg="white")
 
-        question_label = tk.Label(self.question_window1, text=self.questions[1].question_statement, font=q_font, bg="white")
+        question_label = tk.Label(self.question_window1, text=self.questions[1].question_statement, font=q_font, bg="white",image=qimg,compound=LEFT)
         question_label.place(relx=0.5, rely=0.2, anchor=CENTER)
 
-        option1_button = tk.Button(self.question_window1, text=self.questions[1].option1, command=self.questions[1].check1, font=button_font, bg="white")
-        option1_button.place(relx=0.25, rely=0.4, anchor=CENTER)
-        option2_button = tk.Button(self.question_window1, text=self.questions[1].option2, command=self.questions[1].check2, font=button_font, bg="white")
-        option2_button.place(relx=0.75, rely=0.4, anchor=CENTER)
+        option1_button = tk.Button(self.question_window1, text=self.questions[1].option1, command=self.questions[1].check1, font=button_font, bg="white",image=aimg,compound=LEFT)
+        option1_button.place(relx=0.40, rely=0.4, anchor=CENTER)
+        option2_button = tk.Button(self.question_window1, text=self.questions[1].option2, command=self.questions[1].check2, font=button_font, bg="white",image=bimg,compound=LEFT)
+        option2_button.place(relx=0.60, rely=0.4, anchor=CENTER)
 
-        option3_button = tk.Button(self.question_window1, text=self.questions[1].option3, command=self.questions[1].check3, font=button_font, bg="white")
-        option3_button.place(relx=0.25, rely=0.6, anchor=CENTER)
-        option4_button = tk.Button(self.question_window1, text=self.questions[1].option4, command=self.questions[1].check4, font=button_font, bg="white")
-        option4_button.place(relx=0.75, rely=0.6, anchor=CENTER)
+        option3_button = tk.Button(self.question_window1, text=self.questions[1].option3, command=self.questions[1].check3, font=button_font, bg="white",image=cimg,compound=LEFT)
+        option3_button.place(relx=0.40, rely=0.6, anchor=CENTER)
+        option4_button = tk.Button(self.question_window1, text=self.questions[1].option4, command=self.questions[1].check4, font=button_font, bg="white",image=dimg,compound=LEFT)
+        option4_button.place(relx=0.60, rely=0.6, anchor=CENTER)
 
-        previous_button = tk.Button(self.question_window1, text="Previous", command=self.displayquestion1, font=button_font, bg="white")
+        previous_button = tk.Button(self.question_window1, text="Previous", command=self.displayquestion1, font=button_font, bg="white",image=previmg,compound=LEFT)
         previous_button.place(relx=0.35, rely=0.8, anchor=CENTER)
-        next_button = tk.Button(self.question_window1, text="Next", command=self.displayquestion3, font=button_font, bg="white")
+        next_button = tk.Button(self.question_window1, text="Next", command=self.displayquestion3, font=button_font, bg="white",image=nextimg,compound=RIGHT)
         next_button.place(relx=0.65, rely=0.8, anchor=CENTER)
 
         self.widgets = [question_label, option1_button, option2_button, option3_button, option4_button, previous_button, next_button]
@@ -160,22 +181,22 @@ class quiz:
             i.destroy()
         self.question_window1.configure(bg="white")
 
-        question_label = tk.Label(self.question_window1, text=self.questions[2].question_statement, font=q_font, bg="white")
+        question_label = tk.Label(self.question_window1, text=self.questions[2].question_statement, font=q_font, bg="white",image=qimg,compound=LEFT)
         question_label.place(relx=0.5, rely=0.2, anchor=CENTER)
 
-        option1_button = tk.Button(self.question_window1, text=self.questions[2].option1, command=self.questions[2].check1, font=button_font, bg="white")
+        option1_button = tk.Button(self.question_window1, text=self.questions[2].option1, command=self.questions[2].check1, font=button_font, bg="white",image=aimg,compound=LEFT)
         option1_button.place(relx=0.25, rely=0.4, anchor=CENTER)
-        option2_button = tk.Button(self.question_window1, text=self.questions[2].option2, command=self.questions[2].check2, font=button_font, bg="white")
+        option2_button = tk.Button(self.question_window1, text=self.questions[2].option2, command=self.questions[2].check2, font=button_font, bg="white",image=bimg,compound=LEFT)
         option2_button.place(relx=0.75, rely=0.4, anchor=CENTER)
 
-        option3_button = tk.Button(self.question_window1, text=self.questions[2].option3, command=self.questions[2].check3, font=button_font, bg="white")
+        option3_button = tk.Button(self.question_window1, text=self.questions[2].option3, command=self.questions[2].check3, font=button_font, bg="white",image=cimg,compound=LEFT)
         option3_button.place(relx=0.25, rely=0.6, anchor=CENTER)
-        option4_button = tk.Button(self.question_window1, text=self.questions[2].option4, command=self.questions[2].check4, font=button_font, bg="white")
+        option4_button = tk.Button(self.question_window1, text=self.questions[2].option4, command=self.questions[2].check4, font=button_font, bg="white",image=dimg,compound=LEFT)
         option4_button.place(relx=0.75, rely=0.6, anchor=CENTER)
 
-        previous_button = tk.Button(self.question_window1, text="Previous", command=self.displayquestion2, font=button_font, bg="white")
+        previous_button = tk.Button(self.question_window1, text="Previous", command=self.displayquestion2, font=button_font, bg="white",image=previmg,compound=LEFT)
         previous_button.place(relx=0.35, rely=0.8, anchor=CENTER)
-        next_button = tk.Button(self.question_window1, text="Next", command=self.displayquestion4, font=button_font, bg="white")
+        next_button = tk.Button(self.question_window1, text="Next", command=self.displayquestion4, font=button_font, bg="white",image=nextimg,compound=RIGHT)
         next_button.place(relx=0.65, rely=0.8, anchor=CENTER)
 
         self.widgets = [question_label, option1_button, option2_button, option3_button, option4_button, previous_button, next_button]
@@ -185,22 +206,22 @@ class quiz:
             i.destroy()
         self.question_window1.configure(bg="white")
 
-        question_label = tk.Label(self.question_window1, text=self.questions[3].question_statement, font=q_font, bg="white")
+        question_label = tk.Label(self.question_window1, text=self.questions[3].question_statement, font=q_font, bg="white",image=qimg,compound=LEFT)
         question_label.place(relx=0.5, rely=0.2, anchor=CENTER)
 
-        option1_button = tk.Button(self.question_window1, text=self.questions[3].option1, command=self.questions[3].check1, font=button_font, bg="white")
+        option1_button = tk.Button(self.question_window1, text=self.questions[3].option1, command=self.questions[3].check1, font=button_font, bg="white",image=aimg,compound=LEFT)
         option1_button.place(relx=0.25, rely=0.4, anchor=CENTER)
-        option2_button = tk.Button(self.question_window1, text=self.questions[3].option2, command=self.questions[3].check2, font=button_font, bg="white")
+        option2_button = tk.Button(self.question_window1, text=self.questions[3].option2, command=self.questions[3].check2, font=button_font, bg="white",image=bimg,compound=LEFT)
         option2_button.place(relx=0.75, rely=0.4, anchor=CENTER)
 
-        option3_button = tk.Button(self.question_window1, text=self.questions[3].option3, command=self.questions[3].check3, font=button_font, bg="white")
+        option3_button = tk.Button(self.question_window1, text=self.questions[3].option3, command=self.questions[3].check3, font=button_font, bg="white",image=cimg,compound=LEFT)
         option3_button.place(relx=0.25, rely=0.6, anchor=CENTER)
-        option4_button = tk.Button(self.question_window1, text=self.questions[3].option4, command=self.questions[3].check4, font=button_font, bg="white")
+        option4_button = tk.Button(self.question_window1, text=self.questions[3].option4, command=self.questions[3].check4, font=button_font, bg="white",image=dimg,compound=LEFT)
         option4_button.place(relx=0.75, rely=0.6, anchor=CENTER)
 
-        previous_button = tk.Button(self.question_window1, text="Previous", command=self.displayquestion3, font=button_font, bg="white")
+        previous_button = tk.Button(self.question_window1, text="Previous", command=self.displayquestion3, font=button_font, bg="white",image=previmg,compound=LEFT)
         previous_button.place(relx=0.35, rely=0.8, anchor=CENTER)
-        next_button = tk.Button(self.question_window1, text="Next", command=self.displayquestion5, font=button_font, bg="white")
+        next_button = tk.Button(self.question_window1, text="Next", command=self.displayquestion5, font=button_font, bg="white",image=nextimg,compound=RIGHT)
         next_button.place(relx=0.65, rely=0.8, anchor=CENTER)
 
         self.widgets = [question_label, option1_button, option2_button, option3_button, option4_button, previous_button, next_button]
@@ -210,22 +231,22 @@ class quiz:
             i.destroy()
         self.question_window1.configure(bg="white")
 
-        question_label = tk.Label(self.question_window1, text=self.questions[4].question_statement, font=q_font, bg="white")
+        question_label = tk.Label(self.question_window1, text=self.questions[4].question_statement, font=q_font, bg="white",image=qimg,compound=LEFT)
         question_label.place(relx=0.5, rely=0.2, anchor=CENTER)
 
-        option1_button = tk.Button(self.question_window1, text=self.questions[4].option1, command=self.questions[4].check1, font=button_font, bg="white")
+        option1_button = tk.Button(self.question_window1, text=self.questions[4].option1, command=self.questions[4].check1, font=button_font, bg="white",image=aimg,compound=LEFT)
         option1_button.place(relx=0.25, rely=0.4, anchor=CENTER)
-        option2_button = tk.Button(self.question_window1, text=self.questions[4].option2, command=self.questions[4].check2, font=button_font, bg="white")
+        option2_button = tk.Button(self.question_window1, text=self.questions[4].option2, command=self.questions[4].check2, font=button_font, bg="white",image=bimg,compound=LEFT)
         option2_button.place(relx=0.75, rely=0.4, anchor=CENTER)
 
-        option3_button = tk.Button(self.question_window1, text=self.questions[4].option3, command=self.questions[4].check3, font=button_font, bg="white")
+        option3_button = tk.Button(self.question_window1, text=self.questions[4].option3, command=self.questions[4].check3, font=button_font, bg="white",image=cimg,compound=LEFT)
         option3_button.place(relx=0.25, rely=0.6, anchor=CENTER)
-        option4_button = tk.Button(self.question_window1, text=self.questions[4].option4, command=self.questions[4].check4, font=button_font, bg="white")
+        option4_button = tk.Button(self.question_window1, text=self.questions[4].option4, command=self.questions[4].check4, font=button_font, bg="white",image=dimg,compound=LEFT)
         option4_button.place(relx=0.75, rely=0.6, anchor=CENTER)
 
-        previous_button = tk.Button(self.question_window1, text="Previous", command=self.displayquestion4, font=button_font, bg="white")
+        previous_button = tk.Button(self.question_window1, text="Previous", command=self.displayquestion4, font=button_font, bg="white",image=previmg,compound=LEFT)
         previous_button.place(relx=0.35, rely=0.8, anchor=CENTER)
-        end_button = tk.Button(self.question_window1, text="End Quiz", command=self.show_score, font=button_font, bg="white")
+        end_button = tk.Button(self.question_window1, text="End Quiz", command=self.show_score, font=button_font, bg="white",image=nextimg,compound=RIGHT)
         end_button.place(relx=0.65, rely=0.8, anchor=CENTER)
 
         self.widgets = [question_label, option1_button, option2_button, option3_button, option4_button, previous_button, end_button]
