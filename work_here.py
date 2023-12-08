@@ -287,12 +287,13 @@ class quiz:
         astro_button.grid(row=14,column=1)
         self.widgets = [instructions_label, welcome_label, start, space, space2, space3, subject_label, space4, all_button, maths_button, science_button, history_button, geo_button, astro_button]
     def show_score(self):
-        self.question_window1.destroy()
+        for i in self.widgets:
+            i.destroy()
         for i in self.questions:
-            print(i.tinyscore)
             self.score += i.tinyscore
         score_message = f"Your Final Score: {self.score}/5"
-        messagebox.showinfo("Quiz Result", score_message)
+        score_label=tk.Label(self.question_window1,text=score_message,bg="white",font=welcome_font)
+        score_label.pack()
 
 swhoo=quiz(root)
 root.mainloop()
