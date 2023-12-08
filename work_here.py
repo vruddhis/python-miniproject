@@ -4,6 +4,7 @@ import pandas as pd
 import tkinter as tk
 from tkinter.font import Font
 from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg, NavigationToolbar2Tk)
+import matplotlib.pyplot as plt
 
 class Question:
     def __init__(self, row):
@@ -63,14 +64,7 @@ welcome_font=Font(family="Times",size=50,weight="bold")
 button_font=Font(family="Helvetica",size=18)
 wc_option_font=Font(family="Helvetica",size=13)
 q_font=Font(family="Helvetica",size=24)
-root.configure(bg="white")
-
-# mathbg=PhotoImage(file="mathbg.png")
-# mathbgimg=tk.PhotoImage(mathbg)
-# mathbg_label = tk.Label(root, image=mathbgimg)
-# mathbg_label.place(x=0, y=0, relwidth=1, relheight=1)
-
-# mathbg_label.image=mathbgimg
+root['background']='#FFD1DC'
 
 bg=PhotoImage(file="q_n_excl.png")
 startquizimg=bg.subsample(10)
@@ -132,9 +126,9 @@ class quiz:
     def displayquestion1(self):
         for i in self.widgets:
             i.destroy()
-        self.question_window1.configure(bg="white")
+        self.question_window1['background']='#FFD1DC'
 
-        question_label = tk.Label(self.question_window1, text=self.questions[0].question_statement, font=q_font, bg="white",image=qimg,compound=LEFT)
+        question_label = tk.Label(self.question_window1, text=self.questions[0].question_statement, font=q_font, bg="#FFD1DC",image=qimg,compound=LEFT)
         question_label.place(relx=0.5, rely=0.2, anchor=CENTER)
 
         option1_button = tk.Button(self.question_window1, text=self.questions[0].option1, command=self.questions[0].check1, font=button_font, bg="white",image=aimg,compound=LEFT)
@@ -155,9 +149,9 @@ class quiz:
     def displayquestion2(self):
         for i in self.widgets:
             i.destroy()
-        self.question_window1.configure(bg="white")
+        self.question_window1['background']='#FFD1DC'
 
-        question_label = tk.Label(self.question_window1, text=self.questions[1].question_statement, font=q_font, bg="white",image=qimg,compound=LEFT)
+        question_label = tk.Label(self.question_window1, text=self.questions[1].question_statement, font=q_font, bg="#FFD1DC",image=qimg,compound=LEFT)
         question_label.place(relx=0.5, rely=0.2, anchor=CENTER)
 
         option1_button = tk.Button(self.question_window1, text=self.questions[1].option1, command=self.questions[1].check1, font=button_font, bg="white",image=aimg,compound=LEFT)
@@ -180,9 +174,10 @@ class quiz:
     def displayquestion3(self):
         for i in self.widgets:
             i.destroy()
-        self.question_window1.configure(bg="white")
+       
+        self.question_window1['background']='#FFD1DC'
 
-        question_label = tk.Label(self.question_window1, text=self.questions[2].question_statement, font=q_font, bg="white",image=qimg,compound=LEFT)
+        question_label = tk.Label(self.question_window1, text=self.questions[2].question_statement, font=q_font, bg="#FFD1DC",image=qimg,compound=LEFT)
         question_label.place(relx=0.5, rely=0.2, anchor=CENTER)
 
         option1_button = tk.Button(self.question_window1, text=self.questions[2].option1, command=self.questions[2].check1, font=button_font, bg="white",image=aimg,compound=LEFT)
@@ -205,9 +200,9 @@ class quiz:
     def displayquestion4(self):
         for i in self.widgets:
             i.destroy()
-        self.question_window1.configure(bg="white")
-
-        question_label = tk.Label(self.question_window1, text=self.questions[3].question_statement, font=q_font, bg="white",image=qimg,compound=LEFT)
+        
+        self.question_window1['background']='#FFD1DC'
+        question_label = tk.Label(self.question_window1, text=self.questions[3].question_statement, font=q_font, bg="#FFD1DC",image=qimg,compound=LEFT)
         question_label.place(relx=0.5, rely=0.2, anchor=CENTER)
 
         option1_button = tk.Button(self.question_window1, text=self.questions[3].option1, command=self.questions[3].check1, font=button_font, bg="white",image=aimg,compound=LEFT)
@@ -230,9 +225,10 @@ class quiz:
     def displayquestion5(self):
         for i in self.widgets:
             i.destroy()
-        self.question_window1.configure(bg="white")
+        
+        self.question_window1['background']='#FFD1DC'
 
-        question_label = tk.Label(self.question_window1, text=self.questions[4].question_statement, font=q_font, bg="white",image=qimg,compound=LEFT)
+        question_label = tk.Label(self.question_window1, text=self.questions[4].question_statement, font=q_font, bg="#FFD1DC",image=qimg,compound=LEFT)
         question_label.place(relx=0.5, rely=0.2, anchor=CENTER)
 
         option1_button = tk.Button(self.question_window1, text=self.questions[4].option1, command=self.questions[4].check1, font=button_font, bg="white",image=aimg,compound=LEFT)
@@ -270,25 +266,25 @@ class quiz:
         width= self.question_window1.winfo_screenwidth() 
         height= self.question_window1.winfo_screenheight()
         self.question_window1.geometry("%dx%d" % (width, height))
-        self.question_window1.configure(bg="white")
+        self.question_window1['background']='#FFD1DC'
 
         welcome_font = Font(family="times new roman", size=50, weight="bold")
         button_font = Font(family="Roboto", size=18)
         wc_option_font = Font(family="Roboto", size=13)
-        select_sub_font=Font(family="Roboto",size=15)
+        select_sub_font=Font(family="Roboto",size=18)
 
-        text = "Instructions:\n1. Click 'Start Quiz' to begin.\n2. Select a subject or choose 'Surprise me' for random questions.\n3. Answer each question by clicking the appropriate option.\nNote: Only your last selected option will be considered.\n4. Click 'Next' to move to the next question, 'Previous' to move to the previous one and 'End Quiz' to finish."
+        text = "1. Click 'Start Quiz' to begin.\n2. Select a subject or choose 'Surprise me' for random questions.\n3. Answer each question by clicking the appropriate option.\nNote: Only your last selected option will be considered.\n4. Click 'Next' to move to the next question, 'Previous' to move to the previous one and 'End Quiz' to finish."
 
-        instructions_label = tk.Label(self.question_window1, text=text, bg="white", font=button_font)
+        instructions_label = tk.Label(self.question_window1, text=text, bg="#FFD1DC", font=button_font)
         instructions_label.place(relx=0.5, rely=0.3, anchor="center")
 
-        welcome_label = tk.Label(self.question_window1, text="Welcome to the QuizLand", bg="white", font=welcome_font)
+        welcome_label = tk.Label(self.question_window1, text="Welcome to the QuizLand", bg="#FFD1DC", font=welcome_font)
         welcome_label.place(relx=0.5, rely=0.1, anchor="center")
 
         start = tk.Button(self.question_window1, text="Start quiz", command=self.xyz, bg="white", font=wc_option_font,image=startquizimg,compound=LEFT)
         start.place(relx=0.5, rely=0.8, anchor="center")
 
-        subject_label = tk.Label(self.question_window1, text="Select Subject:", bg="white", font=select_sub_font)
+        subject_label = tk.Label(self.question_window1, text="Select Subject:", bg="#FFD1DC", font=select_sub_font)
         subject_label.place(relx=0.5, rely=0.5, anchor="center")
 
         all_button = tk.Button(self.question_window1, text="Surprise me!", bg="white", font=wc_option_font,image=surpriseme,compound=LEFT)
@@ -315,20 +311,23 @@ class quiz:
         ]
 
     def show_score(self):
+        score_font=Font(family="Times",size=40,weight="bold")
+        self.question_window1['background']='#FFD1DC'
         for i in self.widgets:
             i.destroy()
         for i in self.questions:
             self.score += i.tinyscore
-        score_message = f"Your Final Score: {self.score}/5"
-        score_label=tk.Label(self.question_window1,text=score_message,bg="white",font=button_font)
-        score_label.pack()
+        score_message = f"SCORE: {self.score}/5"
+        score_label=tk.Label(self.question_window1,text=score_message,font=score_font,bg="#FFD1DC")
+        score_label.place(relx=0.4, rely=0.1)
         labels = 'Correct', 'Incorrect'
         sizes = [self.score, 5 - self.score]
         colors = ['green', 'red']
         fig, ax = plt.subplots()
-        ax.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
+        ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
+        fig.set_facecolor('#FFD1DC')
         canvas = FigureCanvasTkAgg(fig, master=self.question_window1)
-        canvas.get_tk_widget().pack()
+        canvas.get_tk_widget().place(relx=0.25,rely=0.2)
         plt.show()
 
 swhoo=quiz(root)
