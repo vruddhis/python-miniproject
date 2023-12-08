@@ -102,6 +102,8 @@ class quiz:
         self.startquiz(self.subject)
 
     def displayquestion1(self):
+        for i in self.widgets:
+            i.destroy()
         self.question_window1.configure(bg="white")
         width= self.question_window1.winfo_screenwidth() 
         height= self.question_window1.winfo_screenheight()
@@ -283,7 +285,7 @@ class quiz:
         geo_button.grid(row=13,column=1)
         astro_button = tk.Button(self.question_window1, text = "Astronomy",bg="white", command = self.setastro, font=wc_option_font,image=starimg,compound=LEFT)
         astro_button.grid(row=14,column=1)
-        
+        self.widgets = [instructions_label, welcome_label, start, space, space2, space3, subject_label, space4, all_button, maths_button, science_button, history_button, geo_button, astro_button]
     def show_score(self):
         self.question_window1.destroy()
         for i in self.questions:
