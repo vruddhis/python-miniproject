@@ -3,6 +3,8 @@ from tkinter import PhotoImage
 import pandas as pd
 import tkinter as tk
 from tkinter.font import Font
+from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg, NavigationToolbar2Tk)
+from matplotlib.figure import Figure
 
 class Question:
     def __init__(self, row):
@@ -321,6 +323,14 @@ class quiz:
         score_message = f"Your Final Score: {self.score}/5"
         score_label=tk.Label(self.question_window1,text=score_message,bg="white",font=button_font)
         score_label.pack()
+        labels = 'Correct', 'Incorrect'
+        sizes = [self.score, 5 - self.score]
+        colors = ['green', 'red']
+        fig, ax = plt.subplots()
+        ax.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True, startangle=140)
+        canvas = FigureCanvasTkAgg(fig, master=self.question_window1)
+        canvas.get_tk_widget().pack()
+        plt.show()
 
 swhoo=quiz(root)
 root.mainloop()
