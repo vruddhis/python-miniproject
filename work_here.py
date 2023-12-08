@@ -83,6 +83,9 @@ calcimg=calc.subsample(10)
 dna=PhotoImage(file="dna.png")
 dnaimg=dna.subsample(10)
 
+surp=PhotoImage(file="surp.png")
+surpriseme=surp.subsample(10)
+
 star=PhotoImage(file="star.png")
 starimg=star.subsample(11)
 
@@ -271,7 +274,7 @@ class quiz:
         subject_label = tk.Label(self.question_window1, text="Select Subject:", bg="white", font=wc_option_font)
         subject_label.place(relx=0.5, rely=0.5, anchor="center")
 
-        all_button = tk.Button(self.question_window1, text="Surprise me!", bg="white", font=wc_option_font)
+        all_button = tk.Button(self.question_window1, text="Surprise me!", bg="white", font=wc_option_font,image=surpriseme,compound=LEFT)
         all_button.place(relx=0.3, rely=0.6, anchor="center")
 
         maths_button = tk.Button(self.question_window1, text="Mathematics", bg="white", command=self.setmaths, font=wc_option_font,image=calcimg,compound=LEFT)
